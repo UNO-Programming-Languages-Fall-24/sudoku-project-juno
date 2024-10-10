@@ -13,4 +13,6 @@ sudoku(X,Y,N) :- initial(X,Y,N).
 1{sudoku(X,Y,N): num(X)}1 :- num(N), num(Y). % Makes sure a number only appears once per row
 1{sudoku(X,Y,N): num(Y)}1 :- num(X), num(N). % Makes sure a number only appears once per column
 
+:- sudoku(X,Y,N), sudoku(X1,Y1,N), X!=X1, Y!=Y1, (((X-1)/2)*2 + (Y-1)/2) == (((X1-1)/2)*2 + (Y1-1)/2).
+
 #show sudoku/3.
